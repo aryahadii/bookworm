@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Bought Books{% endblock %}
+
+{% block content %}
+
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-sm-4 offset-sm-4 my-auto">
+            <div class="list-group">
+                {% for book in books %}
+                <a href="{% url 'download' username|safe password|safe book.id book.title|safe book.password|safe %}"
+                    class="list-group-item text-center">{{ book.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

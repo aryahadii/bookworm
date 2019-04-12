@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/arya/.virtualenvs/bookworm/bin/python"
+    "python.pythonPath": "/Users/arya/.virtualenvs/bookworm/bin/python",
+    "python.linting.pylintEnabled": false
 }

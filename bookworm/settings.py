@@ -15,18 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'n-(*6b*t7*85!)61omkqdw41v+889(yvt1*^8g3$8#xd@si9da'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -37,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'fidibo',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +47,7 @@ ROOT_URLCONF = 'bookworm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,9 +62,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bookworm.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -80,41 +71,54 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'fa-IR'
+TIME_ZONE = 'Asia/Tehran'
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Fidibo
+
+STORE_ID = '1'
+APP_VERSION_NAME = '6.0'
+DEVICE_INFO = {
+    'brand':
+    'one',
+    'type':
+    'PC',
+    'serial':
+    'FA46-C4DD-8ACC-F361-CFD3-DB3B-83C5-6585',
+    'spec':
+    r'Cpu: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHzGenuineIntel 2808  \r\n\r\nBase:  Oracle Corporation Base Board 0\r\n\r\nDisk: VBOX HARDDISK (Standard disk drives) 853481205 255 \r\n\r\nBIOS: innotek GmbH VirtualBox  0 20061201000000.000000+000 VBOX   - 1\r\n\r\nVideo: 5.2.20.0 VirtualBox Graphics Adapter for Windows 8+\r\n\r\nMAC: 08:00:27:50:6E:91\r\n\r\nScreenSize=1680x1050',
+    'version':
+    'Microsoft Windows 10 Pro',
+}
+
+BOOK_DOWNLOAD_PATH = '{}.epub'
